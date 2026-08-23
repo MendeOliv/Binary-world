@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Memory Browser - Código Binário</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "error": "#ffb4ab",
+                "on-primary-fixed": "#002113",
+                "on-primary-container": "#00422b",
+                "on-primary-fixed-variant": "#005236",
+                "inverse-primary": "#006c49",
+                "primary": "#4edea3",
+                "tertiary": "#68dba9",
+                "secondary-fixed": "#d3e4fe",
+                "tertiary-fixed": "#85f8c4",
+                "on-secondary-fixed": "#0b1c30",
+                "surface-container-low": "#131b2e",
+                "border-subtle": "#334155",
+                "on-secondary-fixed-variant": "#38485d",
+                "outline": "#86948a",
+                "text-primary": "#F1F5F9",
+                "primary-container": "#10b981",
+                "secondary-container": "#3a4a5f",
+                "outline-variant": "#3c4a42",
+                "tertiary-fixed-dim": "#68dba9",
+                "background": "#0b1326",
+                "on-tertiary-fixed-variant": "#005137",
+                "on-secondary": "#213145",
+                "on-tertiary-fixed": "#002114",
+                "surface-tint": "#4edea3",
+                "text-secondary": "#94A3B8",
+                "on-tertiary-container": "#00422c",
+                "surface-elevated": "#1F2937",
+                "surface": "#111827",
+                "on-background": "#dae2fd",
+                "surface-container-lowest": "#060e20",
+                "surface-bright": "#31394d",
+                "on-error": "#690005",
+                "primary-fixed": "#6ffbbe",
+                "on-surface-variant": "#bbcabf",
+                "on-primary": "#003824",
+                "surface-container-high": "#222a3d",
+                "inverse-surface": "#dae2fd",
+                "surface-variant": "#2d3449",
+                "secondary-fixed-dim": "#b7c8e1",
+                "secondary": "#b7c8e1",
+                "inverse-on-surface": "#283044",
+                "on-surface": "#dae2fd",
+                "surface-container": "#171f33",
+                "error-container": "#93000a",
+                "surface-dim": "#0b1326",
+                "on-secondary-container": "#a9bad3",
+                "on-error-container": "#ffdad6",
+                "on-tertiary": "#003825",
+                "surface-container-highest": "#2d3449",
+                "tertiary-container": "#3eb686",
+                "primary-fixed-dim": "#4edea3"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "lg": "1.5rem",
+                "xl": "2.5rem",
+                "margin-mobile": "1rem",
+                "sm": "0.5rem",
+                "margin-desktop": "2rem",
+                "xs": "0.25rem",
+                "gutter": "1rem",
+                "md": "1rem"
+        },
+        "fontFamily": {
+                "body-md": [
+                        "JetBrains Mono"
+                ],
+                "label-sm": [
+                        "JetBrains Mono"
+                ],
+                "headline-xl": [
+                        "JetBrains Mono"
+                ],
+                "headline-lg": [
+                        "JetBrains Mono"
+                ],
+                "body-lg": [
+                        "JetBrains Mono"
+                ],
+                "headline-lg-mobile": [
+                        "JetBrains Mono"
+                ],
+                "label-md": [
+                        "JetBrains Mono"
+                ],
+                "body-sm": [
+                        "JetBrains Mono"
+                ],
+                "headline-md": [
+                        "JetBrains Mono"
+                ]
+        },
+        "fontSize": {
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-xl": [
+                        "40px",
+                        {
+                                "lineHeight": "48px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-sm": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "500"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        body { background-color: #0b1326; color: #F1F5F9; }
+        .terminal-border { border: 1px solid #334155; }
+        .terminal-hover:hover { border-color: #10b981; box-shadow: inset 0px 0px 4px rgba(16, 185, 129, 0.3); }
+        .hard-shadow { box-shadow: 4px 4px 0px #060e20; }
+        .terminal-input:focus { border-color: #10b981; box-shadow: 0 0 8px rgba(16, 185, 129, 0.4); outline: none; }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #060e20; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #10b981; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md overflow-x-hidden selection:bg-primary-container selection:text-on-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 right-0 left-0 md:left-64 z-30 flex justify-between items-center px-lg h-16 bg-surface-container-highest/90 backdrop-blur-md border-b border-border-subtle scale-95 duration-150 transform origin-top">
+<div class="flex items-center gap-6">
+<span class="font-headline-lg text-headline-lg font-bold text-primary uppercase hidden md:block tracking-tighter">CÓDIGO BINÁRIO</span>
+<div class="flex gap-4">
+<a class="text-text-secondary hover:text-primary transition-colors font-label-md text-label-md" href="#">Chat</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md" href="#">Memory</a>
+<a class="text-text-secondary hover:text-primary transition-colors font-label-md text-label-md" href="#">Settings</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex relative items-center">
+<img alt="Branding" class="absolute left-2 w-5 h-5 rounded-sm object-cover opacity-80 z-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7ooILCyiS76cwhxazrEa2vgl1au4rRGPsDYTb9vB2V1RYDHkfSUfBSdRrcUTS1A-EBONYUcxvyjI6FeU3D8chnmRYmke-apeWPaFcRNojaUDQ6UMJ6cQdk-WjW64osJ9SOnO2icnpo3ZlYEPV0-QvedS1gBX7RfJkl1iLAQDlEk9Onq8QE68OQlz8BAV5-pxNwKoFWPN7H7mj_j-WmAMT80w_zkSTn9nShIYD2NzoPlnnh7JQMxCowwlxKiR-SfXk8w"/>
+<span class="material-symbols-outlined absolute left-9 top-1/2 -translate-y-1/2 text-text-secondary" style="font-size: 18px;">search</span>
+<input class="bg-surface-elevated border-border-subtle text-text-primary font-body-sm text-body-sm rounded pl-16 pr-3 py-1.5 focus:border-primary-container focus:ring-0 terminal-input placeholder-text-secondary w-72 transition-all" placeholder="QUERY_MEMORY..." type="text"/>
+</div>
+<button class="bg-primary-container/20 text-primary border border-primary font-label-md text-label-md font-bold px-4 py-1.5 rounded hover:bg-primary-container/40 transition-colors uppercase tracking-wider flex items-center gap-2">
+                PHASE_01: INITIALIZE
+            </button>
+<div class="flex gap-2 text-text-secondary">
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined">memory</span></button>
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined">sync_alt</span></button>
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined">terminal</span></button>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col fixed left-0 top-0 h-full z-40 bg-surface dark:bg-surface border-r border-border-subtle w-64 h-screen">
+<div class="p-lg border-b border-border-subtle mb-4">
+<div class="mb-2 w-full max-w-[180px]"><img alt="Código Binário Logo" class="w-full h-auto block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwMEw5JJboDynqd3hPOP4UAI16NiStu2dxgVYNpjxx8wi614WsHgZ2UBSmFzMK4Mqk6IVmFTrKjny0NOanZaT1DNkpuc417xviqs1Zsv-cw4Rn-TBTtuyYntukdlTGBw8aNeIb2YvNExePNwUKarLyCc9JvwTystUQGJJA3BuCV-tvu9BLbj23ndNs1BbnZOX8rARZ29Xbx0FCavY4xXfMzBNTjl4CpjrGiskCt61cEEJ-c4Zz_ZoeReKgh72AVEg_Lg"/></div>
+<div class="font-body-sm text-body-sm text-text-secondary">AI OS v1.0.4</div>
+</div>
+<div class="px-md mb-6">
+<button class="w-full border border-primary-container text-primary font-label-md text-label-md font-bold py-2 rounded hover:bg-primary-container/20 transition-colors uppercase flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" style="font-size: 18px;">add</span> + NEW_PROJECT
+            </button>
+</div>
+<nav class="flex-1 overflow-y-auto space-y-1">
+<a class="text-text-secondary hover:text-text-primary pl-4 py-3 flex items-center gap-3 transition-colors hover:bg-surface-elevated font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">folder_open</span> Current Project
+            </a>
+<a class="text-primary border-l-2 border-primary bg-primary-container/10 pl-4 py-3 flex items-center gap-3 transition-all hover:bg-surface-elevated font-label-md text-label-md opacity-90 scale-[0.99]" href="#">
+<span class="material-symbols-outlined">inventory_2</span> Project Archive
+            </a>
+<a class="text-text-secondary hover:text-text-primary pl-4 py-3 flex items-center gap-3 transition-colors hover:bg-surface-elevated font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">step</span> Active Phase
+            </a>
+<a class="text-text-secondary hover:text-text-primary pl-4 py-3 flex items-center gap-3 transition-colors hover:bg-surface-elevated font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">terminal</span> System Logs
+            </a>
+</nav>
+</aside>
+<!-- BottomNavBar (Mobile) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-md pb-safe h-20 bg-surface-container-high border-t border-border-subtle hard-shadow md:hidden">
+<a class="flex flex-col items-center justify-center text-text-secondary p-2 hover:text-primary font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined mb-1">terminal</span>
+<span class="text-[10px]">Console</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary bg-primary-container/20 rounded-xl p-2 hover:text-primary font-label-md text-label-md scale-90" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">database</span>
+<span class="text-[10px] font-bold">Memory</span>
+</a>
+<a class="flex flex-col items-center justify-center text-text-secondary p-2 hover:text-primary font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined mb-1">folder_special</span>
+<span class="text-[10px]">Files</span>
+</a>
+<a class="flex flex-col items-center justify-center text-text-secondary p-2 hover:text-primary font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined mb-1">settings</span>
+<span class="text-[10px]">Settings</span>
+</a>
+</nav>
+<!-- Main Content -->
+<main class="md:ml-64 pt-16 pb-20 md:pb-0 min-h-screen">
+<div class="max-w-[1280px] mx-auto p-margin-mobile md:p-margin-desktop">
+<!-- Header Section -->
+<header class="mb-lg flex flex-col md:flex-row md:items-end justify-between gap-4 mt-6">
+<div>
+<h1 class="font-headline-xl text-headline-xl text-primary mb-2 flex items-center gap-3">
+<span class="material-symbols-outlined" style="font-size: 36px;">database</span>
+                        KNOWLEDGE_BASE
+                    </h1>
+<p class="text-text-secondary font-body-sm text-body-sm">Browsing stored entries, decisions, and system history.</p>
+</div>
+<div class="flex gap-2">
+<button class="bg-transparent border border-primary-container text-primary font-label-md text-label-md px-3 py-1.5 rounded hover:bg-primary-container/20 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-size: 16px;">download</span> EXPORT
+                    </button>
+</div>
+</header>
+<!-- Filters -->
+<section class="bg-surface border border-border-subtle rounded p-md mb-lg">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div>
+<label class="block font-body-sm text-body-sm text-text-secondary mb-1 uppercase">Search</label>
+<input class="w-full bg-surface-elevated border-border-subtle text-text-primary font-body-sm text-body-sm rounded px-3 py-1.5 focus:border-primary-container focus:ring-0 terminal-input placeholder-text-secondary" placeholder="Grep entries..." type="text"/>
+</div>
+<div>
+<label class="block font-body-sm text-body-sm text-text-secondary mb-1 uppercase">Type</label>
+<select class="w-full bg-surface-elevated border-border-subtle text-text-primary font-body-sm text-body-sm rounded px-3 py-1.5 focus:border-primary-container focus:ring-0 terminal-input appearance-none">
+<option>ALL_TYPES</option>
+<option>DECISION</option>
+<option>REQUIREMENT</option>
+<option>TASK</option>
+<option>HISTORY</option>
+</select>
+</div>
+<div>
+<label class="block font-body-sm text-body-sm text-text-secondary mb-1 uppercase">Status</label>
+<select class="w-full bg-surface-elevated border-border-subtle text-text-primary font-body-sm text-body-sm rounded px-3 py-1.5 focus:border-primary-container focus:ring-0 terminal-input appearance-none">
+<option>ACTIVE</option>
+<option>REVOKED</option>
+<option>PENDING</option>
+</select>
+</div>
+<div>
+<label class="block font-body-sm text-body-sm text-text-secondary mb-1 uppercase">Project ID</label>
+<input class="w-full bg-surface-elevated border-border-subtle text-text-primary font-body-sm text-body-sm rounded px-3 py-1.5 focus:border-primary-container focus:ring-0 terminal-input placeholder-text-secondary" placeholder="PRJ-*" type="text"/>
+</div>
+</div>
+</section>
+<!-- Data Table -->
+<section class="bg-surface border border-border-subtle rounded overflow-hidden shadow-lg">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-border-subtle bg-surface-elevated">
+<th class="p-3 font-body-sm text-body-sm text-text-secondary font-medium">ID</th>
+<th class="p-3 font-body-sm text-body-sm text-text-secondary font-medium">TYPE</th>
+<th class="p-3 font-body-sm text-body-sm text-text-secondary font-medium">SUMMARY</th>
+<th class="p-3 font-body-sm text-body-sm text-text-secondary font-medium">PROJECT</th>
+<th class="p-3 font-body-sm text-body-sm text-text-secondary font-medium">STATUS</th>
+<th class="p-3 font-body-sm text-body-sm text-text-secondary font-medium text-right">ACTIONS</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm">
+<!-- Row 1 -->
+<tr class="border-b border-border-subtle hover:bg-surface-elevated/50 transition-colors group">
+<td class="p-3 text-primary font-bold">DEC-042</td>
+<td class="p-3">
+<span class="bg-surface-elevated border border-border-subtle text-primary-container font-bold px-2 py-0.5 rounded text-[11px] uppercase">DECISION</span>
+</td>
+<td class="p-3 text-text-primary max-w-xs truncate">Switch architecture to micro-frontends</td>
+<td class="p-3 text-text-secondary">PRJ-ALPHA</td>
+<td class="p-3">
+<span class="text-primary-container font-bold flex items-center gap-1"><span class="material-symbols-outlined" style="font-size: 16px;">check_circle</span> ACTIVE</span>
+</td>
+<td class="p-3 text-right space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-text-secondary hover:text-primary transition-colors" title="Correct">
+<span class="material-symbols-outlined" style="font-size: 18px;">edit</span>
+</button>
+<button class="text-error hover:text-red-400 transition-colors" title="Revoke">
+<span class="material-symbols-outlined" style="font-size: 18px;">block</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="border-b border-border-subtle hover:bg-surface-elevated/50 transition-colors group">
+<td class="p-3 text-primary font-bold">REQ-108</td>
+<td class="p-3">
+<span class="bg-surface-elevated border border-border-subtle text-primary-container font-bold px-2 py-0.5 rounded text-[11px] uppercase">REQUIREMENT</span>
+</td>
+<td class="p-3 text-text-primary max-w-xs truncate">User must authenticate via OAuth2 before accessing terminal</td>
+<td class="p-3 text-text-secondary">PRJ-OMEGA</td>
+<td class="p-3">
+<span class="text-primary-container font-bold flex items-center gap-1"><span class="material-symbols-outlined" style="font-size: 16px;">check_circle</span> ACTIVE</span>
+</td>
+<td class="p-3 text-right space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-text-secondary hover:text-primary transition-colors" title="Correct">
+<span class="material-symbols-outlined" style="font-size: 18px;">edit</span>
+</button>
+<button class="text-error hover:text-red-400 transition-colors" title="Revoke">
+<span class="material-symbols-outlined" style="font-size: 18px;">block</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="border-b border-border-subtle hover:bg-surface-elevated/50 transition-colors group opacity-60">
+<td class="p-3 text-text-secondary font-bold line-through">DEC-011</td>
+<td class="p-3">
+<span class="bg-surface-elevated border border-border-subtle text-primary-container font-bold px-2 py-0.5 rounded text-[11px] uppercase">DECISION</span>
+</td>
+<td class="p-3 text-text-secondary max-w-xs truncate line-through">Use legacy polling for real-time updates</td>
+<td class="p-3 text-text-secondary">PRJ-BETA</td>
+<td class="p-3">
+<span class="text-error-container font-bold flex items-center gap-1"><span class="material-symbols-outlined" style="font-size: 16px;">cancel</span> REVOKED</span>
+</td>
+<td class="p-3 text-right space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-text-secondary hover:text-primary transition-colors" title="View Details">
+<span class="material-symbols-outlined" style="font-size: 18px;">visibility</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="border-b border-border-subtle hover:bg-surface-elevated/50 transition-colors group">
+<td class="p-3 text-primary font-bold">TSK-551</td>
+<td class="p-3">
+<span class="bg-surface-elevated border border-border-subtle text-primary-container font-bold px-2 py-0.5 rounded text-[11px] uppercase">TASK</span>
+</td>
+<td class="p-3 text-text-primary max-w-xs truncate">Optimize shader compilation time</td>
+<td class="p-3 text-text-secondary">PRJ-CORE</td>
+<td class="p-3">
+<span class="text-primary-container font-bold flex items-center gap-1"><span class="material-symbols-outlined" style="font-size: 16px;">check_circle</span> ACTIVE</span>
+</td>
+<td class="p-3 text-right space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-text-secondary hover:text-primary transition-colors" title="Correct">
+<span class="material-symbols-outlined" style="font-size: 18px;">edit</span>
+</button>
+<button class="text-error hover:text-red-400 transition-colors" title="Revoke">
+<span class="material-symbols-outlined" style="font-size: 18px;">block</span>
+</button>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="border-b border-border-subtle hover:bg-surface-elevated/50 transition-colors group">
+<td class="p-3 text-primary font-bold">HST-992</td>
+<td class="p-3">
+<span class="bg-surface-elevated border border-border-subtle text-primary-container font-bold px-2 py-0.5 rounded text-[11px] uppercase">HISTORY</span>
+</td>
+<td class="p-3 text-text-primary max-w-xs truncate">System reboot initiated by admin</td>
+<td class="p-3 text-text-secondary">SYS-OPS</td>
+<td class="p-3">
+<span class="text-text-secondary font-bold flex items-center gap-1"><span class="material-symbols-outlined" style="font-size: 16px;">history</span> LOGGED</span>
+</td>
+<td class="p-3 text-right space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-text-secondary hover:text-primary transition-colors" title="View Details">
+<span class="material-symbols-outlined" style="font-size: 18px;">visibility</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="p-3 border-t border-border-subtle bg-surface-elevated flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-text-secondary">Showing 1-5 of 1,024 entries</span>
+<div class="flex gap-1">
+<button class="p-1 text-text-secondary hover:text-primary border border-transparent hover:border-border-subtle rounded transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined" style="font-size: 18px;">chevron_left</span>
+</button>
+<button class="p-1 text-text-secondary hover:text-primary border border-transparent hover:border-border-subtle rounded transition-colors">
+<span class="material-symbols-outlined" style="font-size: 18px;">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>

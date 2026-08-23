@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Código Binário - Project State</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "error": "#ffb4ab",
+                "on-primary-fixed": "#002113",
+                "on-primary-container": "#00422b",
+                "on-primary-fixed-variant": "#005236",
+                "inverse-primary": "#006c49",
+                "primary": "#4edea3",
+                "tertiary": "#68dba9",
+                "secondary-fixed": "#d3e4fe",
+                "tertiary-fixed": "#85f8c4",
+                "on-secondary-fixed": "#0b1c30",
+                "surface-container-low": "#131b2e",
+                "border-subtle": "#334155",
+                "on-secondary-fixed-variant": "#38485d",
+                "outline": "#86948a",
+                "text-primary": "#F1F5F9",
+                "primary-container": "#10b981",
+                "secondary-container": "#3a4a5f",
+                "outline-variant": "#3c4a42",
+                "tertiary-fixed-dim": "#68dba9",
+                "background": "#0b1326",
+                "on-tertiary-fixed-variant": "#005137",
+                "on-secondary": "#213145",
+                "on-tertiary-fixed": "#002114",
+                "surface-tint": "#4edea3",
+                "text-secondary": "#94A3B8",
+                "on-tertiary-container": "#00422c",
+                "surface-elevated": "#1F2937",
+                "surface": "#111827",
+                "on-background": "#dae2fd",
+                "surface-container-lowest": "#060e20",
+                "surface-bright": "#31394d",
+                "on-error": "#690005",
+                "primary-fixed": "#6ffbbe",
+                "on-surface-variant": "#bbcabf",
+                "on-primary": "#003824",
+                "surface-container-high": "#222a3d",
+                "inverse-surface": "#dae2fd",
+                "surface-variant": "#2d3449",
+                "secondary-fixed-dim": "#b7c8e1",
+                "secondary": "#b7c8e1",
+                "inverse-on-surface": "#283044",
+                "on-surface": "#dae2fd",
+                "surface-container": "#171f33",
+                "error-container": "#93000a",
+                "surface-dim": "#0b1326",
+                "on-secondary-container": "#a9bad3",
+                "on-error-container": "#ffdad6",
+                "on-tertiary": "#003825",
+                "surface-container-highest": "#2d3449",
+                "tertiary-container": "#3eb686",
+                "primary-fixed-dim": "#4edea3",
+                "warning": "#854D0E",
+                "warning-accent": "#FFB300"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "lg": "1.5rem",
+                "xl": "2.5rem",
+                "margin-mobile": "1rem",
+                "sm": "0.5rem",
+                "margin-desktop": "2rem",
+                "xs": "0.25rem",
+                "gutter": "1rem",
+                "md": "1rem"
+        },
+        "fontFamily": {
+                "body-md": [
+                        "JetBrains Mono"
+                ],
+                "label-sm": [
+                        "JetBrains Mono"
+                ],
+                "headline-xl": [
+                        "JetBrains Mono"
+                ],
+                "headline-lg": [
+                        "JetBrains Mono"
+                ],
+                "body-lg": [
+                        "JetBrains Mono"
+                ],
+                "headline-lg-mobile": [
+                        "JetBrains Mono"
+                ],
+                "label-md": [
+                        "JetBrains Mono"
+                ],
+                "body-sm": [
+                        "JetBrains Mono"
+                ],
+                "headline-md": [
+                        "JetBrains Mono"
+                ],
+                "code-sm": [
+                        "JetBrains Mono"
+                ]
+        },
+        "fontSize": {
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-xl": [
+                        "40px",
+                        {
+                                "lineHeight": "48px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-sm": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "500"
+                        }
+                ],
+                "code-sm": [
+                        "13px",
+                        {
+                                "lineHeight": "18px",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        body {
+            background-color: #0b1326; /* Updated Background */
+            color: #F1F5F9;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        /* Terminal Noir Specific Utilities */
+        .card-surface {
+            background-color: #111827;
+            border: 1px solid #334155;
+        }
+        .card-surface:hover {
+            border-color: #4edea3;
+            box-shadow: inset 0px 0px 4px rgba(78, 222, 163, 0.3);
+        }
+        .card-header-divider {
+            border-bottom: 1px solid #334155;
+        }
+        
+        .list-item-hover:hover {
+            background-color: #1F2937;
+        }
+        
+        .terminal-prompt::before {
+            content: '>';
+            color: #4edea3;
+            margin-right: 8px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .hard-shadow {
+            box-shadow: 4px 4px 0px #060e20;
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b1326;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3a4a5f;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col md:flex-row font-body-md text-body-md relative">
+<!-- Watermark -->
+<img alt="Watermark" class="fixed bottom-4 right-4 h-64 opacity-[0.03] pointer-events-none z-0 mix-blend-screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDe5RjscNk2RRbCNylm9rLiVkP1De2e5jJDrWNbeN602kL8owjL5gfASNfTc1lcnnqU5OgpM20IpLGgicHGCGl0ydR7nNTLemp8V9jV6y7eEca241qpRWC9fG6ilBk_3QIjIgWojWPQaaGxH3sMZE1hnPcfqi-jjRoj6hBosnh1GRDAcfzus_EbYerKzmo_8QUSxiBLu3ZAuVwygZEqE2HclfgUedJz4D7R-3ws5B5hYy73a4qw_S3od-BoDd_QfU4G8w"/>
+<!-- TopNavBar (Mobile Focus / Secondary Desktop) -->
+<nav class="bg-background/80 backdrop-blur-md text-primary dark:text-primary border-b border-border-subtle flat no shadows fixed top-0 right-0 left-0 md:left-64 z-30 flex justify-between items-center px-lg h-16">
+<div class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg font-bold text-primary uppercase tracking-tighter hidden md:block">
+            CÓDIGO BINÁRIO
+        </div>
+<div class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary uppercase md:hidden tracking-tighter">
+            CÓDIGO BINÁRIO
+        </div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center gap-6">
+<a class="text-text-secondary hover:text-primary transition-colors font-label-md text-label-md hover:text-primary-fixed" href="#">Chat</a>
+<a class="text-text-secondary hover:text-primary transition-colors font-label-md text-label-md hover:text-primary-fixed" href="#">Memory</a>
+<a class="text-text-secondary hover:text-primary transition-colors font-label-md text-label-md hover:text-primary-fixed" href="#">Settings</a>
+</div>
+<div class="flex items-center gap-3">
+<button aria-label="memory" class="text-text-secondary hover:text-primary transition-colors hover:text-primary-fixed">
+<span class="material-symbols-outlined" data-icon="memory">memory</span>
+</button>
+<button aria-label="sync_alt" class="text-text-secondary hover:text-primary transition-colors hover:text-primary-fixed">
+<span class="material-symbols-outlined" data-icon="sync_alt">sync_alt</span>
+</button>
+<button aria-label="terminal" class="text-text-secondary hover:text-primary transition-colors hover:text-primary-fixed">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+</button>
+<button class="hidden md:flex items-center gap-2 bg-primary-container text-on-primary-container font-label-md text-label-md px-4 py-2 border border-primary rounded-DEFAULT hover:bg-tertiary-container transition-colors ml-4 uppercase font-bold">
+                    PHASE_01: INITIALIZE
+                </button>
+</div>
+</div>
+</nav>
+<!-- SideNavBar (Desktop) -->
+<aside class="bg-surface text-primary border-r border-border-subtle flat no shadows hidden md:flex flex-col fixed left-0 top-0 h-full z-40 h-screen w-64">
+<div class="p-lg border-b border-border-subtle flex flex-col gap-2">
+<div class="h-10 mb-1"><img alt="Código Binário Logo" class="h-full w-auto object-contain mix-blend-screen opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx_sqDAB5XkdoFaw8omzAZLFa3Nsv9pWyRyDgWac_XWnxg9PX3ssC8JK8UEJ5Pf8EEnZpOkLnW3KqSKJUPyD_nO5oIXMGe6wcIbPOkzSsVhQpBdKABH4FRCEOqpYNlFeW1_qA2Ia5ktQ9JRrp5lvx64so6M7fDGLZCh0xYqzI7ay4joGY9iae3j6ZgqWLbrpiKmjYxJKpkfagYBKIQXVRYDaJIo7DvcF_IW3LV8BgL2zryxSDQeXq_v19oBp9eRmkNrg"/></div>
+<div class="font-code-sm text-code-sm text-text-secondary">
+                AI OS v1.0.4
+            </div>
+</div>
+<div class="flex-1 overflow-y-auto py-md flex flex-col gap-2">
+<!-- Active State: Current Phase details align with "Active Phase" -->
+<a class="text-primary border-l-2 border-primary bg-primary-container/20 pl-4 py-3 flex items-center gap-3 transition-all opacity-80 scale-[0.99] font-label-md text-label-md hover:bg-surface-elevated" href="#">
+<span class="material-symbols-outlined" data-icon="step">step</span>
+                Active Phase
+            </a>
+<a class="text-text-secondary hover:text-text-primary pl-4 py-3 flex items-center gap-3 transition-colors hover:bg-surface-elevated font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="folder_open">folder_open</span>
+                Current Project
+            </a>
+<a class="text-text-secondary hover:text-text-primary pl-4 py-3 flex items-center gap-3 transition-colors hover:bg-surface-elevated font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+                Project Archive
+            </a>
+<a class="text-text-secondary hover:text-text-primary pl-4 py-3 flex items-center gap-3 transition-colors hover:bg-surface-elevated font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+                System Logs
+            </a>
+</div>
+<div class="p-md border-t border-border-subtle">
+<button class="w-full bg-primary-container text-on-primary-container font-label-md text-label-md px-4 py-3 border border-primary rounded-DEFAULT hover:bg-tertiary-container transition-colors uppercase font-bold text-center flex justify-center items-center gap-2">
+<span class="material-symbols-outlined">add</span>
+                + NEW_PROJECT
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full md:pl-64 pt-16 pb-24 md:pb-8 min-h-screen relative z-10">
+<div class="max-w-[1280px] mx-auto p-margin-mobile md:p-margin-desktop">
+<!-- Page Header -->
+<header class="mb-lg flex flex-col md:flex-row md:items-center gap-6">
+<img alt="Logo completo" class="h-24 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGoKF6YRe3NlHaigmzvotJBHXaoRHZnw79xMsLxe6U7BR6HhkSFVtbgNyX1-1NQGfqHSFlrk86fE8qZ7TrCwEfSH3izxMDOtTXx2SdVmhomG2mEdQa4JNMGdyhSQDDgD-HUk7QPpjT7TF1ZG2rnr7QVPIH-mSPkv1gP4-bgmXTeai5lpgpyQqhtfCpl5NbPt8mGWS4v25LJwrSGDlQ7reBzU0n65BS_4Lg6MNlEVvJL3dgN0BiJNxA-APU7AwMYw735Q"/>
+<div>
+<h1 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-text-primary mb-2 tracking-tighter">PROJECT_STATE</h1>
+<p class="font-code-sm text-code-sm text-text-secondary">System status: NOMINAL | Timestamp: 2024-05-20T14:32:01Z</p>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Current Phase Details (Col span 8 on desktop) -->
+<section class="card-surface rounded-DEFAULT md:col-span-8 flex flex-col hard-shadow">
+<div class="p-md card-header-divider flex justify-between items-center">
+<h2 class="font-label-md text-label-md text-primary uppercase flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="sync">sync</span>
+                            CURRENT_PHASE_EXECUTION
+                        </h2>
+<span class="font-code-sm text-code-sm text-text-secondary bg-surface-elevated px-2 py-1 rounded-DEFAULT border border-border-subtle">PHASE_03</span>
+</div>
+<div class="p-md flex-1 grid grid-cols-1 sm:grid-cols-3 gap-md">
+<!-- Completed -->
+<div class="flex flex-col gap-2">
+<h3 class="font-code-sm text-code-sm text-text-secondary uppercase border-b border-border-subtle pb-1">COMPLETED_OPS</h3>
+<ul class="flex flex-col gap-2 font-code-sm text-code-sm text-text-primary">
+<li class="terminal-prompt list-item-hover p-1 rounded transition-colors text-text-secondary"><span class="line-through">Init dependencies</span></li>
+<li class="terminal-prompt list-item-hover p-1 rounded transition-colors text-text-secondary"><span class="line-through">Verify auth tokens</span></li>
+<li class="terminal-prompt list-item-hover p-1 rounded transition-colors text-text-secondary"><span class="line-through">Load structural schema</span></li>
+</ul>
+</div>
+<!-- In Progress -->
+<div class="flex flex-col gap-2">
+<h3 class="font-code-sm text-code-sm text-primary uppercase border-b border-primary-container pb-1">IN_PROGRESS_OPS</h3>
+<ul class="flex flex-col gap-2 font-code-sm text-code-sm text-primary">
+<li class="terminal-prompt list-item-hover p-1 rounded transition-colors flex items-center gap-2">
+                                    Compiling assets
+                                    <span class="material-symbols-outlined text-[14px] animate-spin" data-icon="progress_activity">progress_activity</span>
+</li>
+<li class="terminal-prompt list-item-hover p-1 rounded transition-colors">Mapping semantic tree</li>
+</ul>
+</div>
+<!-- Next Steps -->
+<div class="flex flex-col gap-2">
+<h3 class="font-code-sm text-code-sm text-text-secondary uppercase border-b border-border-subtle pb-1">QUEUED_OPS</h3>
+<ul class="flex flex-col gap-2 font-code-sm text-code-sm text-text-primary">
+<li class="terminal-prompt list-item-hover p-1 rounded transition-colors">Render final UI</li>
+<li class="terminal-prompt list-item-hover p-1 rounded transition-colors">Execute test suite</li>
+<li class="terminal-prompt list-item-hover p-1 rounded transition-colors">Deploy to staging</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Open Questions (Col span 4 on desktop) -->
+<section class="card-surface rounded-DEFAULT md:col-span-4 flex flex-col hard-shadow border-[#854D0E] bg-[#0b1326]">
+<div class="p-md border-b border-[#854D0E] flex justify-between items-center bg-[#854D0E]/10">
+<h2 class="font-label-md text-label-md text-warning-accent uppercase flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+                            OPEN_QUERIES
+                        </h2>
+<span class="font-code-sm text-code-sm text-warning-accent bg-[#854D0E]/30 px-2 py-1 rounded-DEFAULT border border-[#854D0E]">SYS_HALT_WARN</span>
+</div>
+<div class="p-md flex-1 flex flex-col gap-md overflow-y-auto max-h-[250px]">
+<div class="flex flex-col gap-1 border-l-2 border-[#854D0E] pl-3 py-1">
+<p class="font-code-sm text-code-sm text-warning-accent font-bold">Query_0x1A:</p>
+<p class="font-body-md text-body-md text-text-primary">Should legacy data be migrated or archived during deployment?</p>
+<div class="flex gap-2 mt-2">
+<button class="bg-transparent border border-[#854D0E] text-warning-accent hover:bg-[#854D0E]/20 font-code-sm text-code-sm px-2 py-1 rounded-DEFAULT transition-colors">AWAITING_INPUT</button>
+</div>
+</div>
+<div class="flex flex-col gap-1 border-l-2 border-[#854D0E] pl-3 py-1">
+<p class="font-code-sm text-code-sm text-warning-accent font-bold">Query_0x1B:</p>
+<p class="font-body-md text-body-md text-text-primary">Confirm target API endpoint for production environment.</p>
+<div class="flex gap-2 mt-2">
+<button class="bg-transparent border border-[#854D0E] text-warning-accent hover:bg-[#854D0E]/20 font-code-sm text-code-sm px-2 py-1 rounded-DEFAULT transition-colors">AWAITING_INPUT</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Active Decisions (Col span 6 on desktop) -->
+<section class="card-surface rounded-DEFAULT md:col-span-6 flex flex-col hard-shadow">
+<div class="p-md card-header-divider flex justify-between items-center">
+<h2 class="font-label-md text-label-md text-primary uppercase flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="fact_check">fact_check</span>
+                            ACTIVE_DECISION_MATRIX
+                        </h2>
+</div>
+<div class="p-md flex-1 flex flex-col gap-3">
+<!-- Decision Item -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-3 bg-surface-container-low rounded-DEFAULT border border-border-subtle hover:border-primary/50 transition-colors">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-text-primary">Use Tailwind CSS v3 Framework</span>
+<span class="font-code-sm text-code-sm text-text-secondary">Source: System Prompt Constraint</span>
+</div>
+<div class="flex items-center gap-2 bg-primary-container/30 border border-primary px-2 py-1 rounded-DEFAULT">
+<span class="material-symbols-outlined text-primary text-[16px]" data-icon="verified">verified</span>
+<span class="font-code-sm text-code-sm text-primary">99% CONFIDENCE</span>
+</div>
+</div>
+<!-- Decision Item -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-3 bg-surface-container-low rounded-DEFAULT border border-border-subtle hover:border-primary/50 transition-colors">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-text-primary">Implement Terminal Noir Aesthetic</span>
+<span class="font-code-sm text-code-sm text-text-secondary">Source: User Specified Style</span>
+</div>
+<div class="flex items-center gap-2 bg-primary-container/30 border border-primary px-2 py-1 rounded-DEFAULT">
+<span class="material-symbols-outlined text-primary text-[16px]" data-icon="verified_user">verified_user</span>
+<span class="font-code-sm text-code-sm text-primary">95% CONFIDENCE</span>
+</div>
+</div>
+<!-- Decision Item -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-3 bg-surface-container-low rounded-DEFAULT border border-border-subtle hover:border-primary/50 transition-colors">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-text-primary">Omit soft shadows entirely</span>
+<span class="font-code-sm text-code-sm text-text-secondary">Source: Design System Guidelines</span>
+</div>
+<div class="flex items-center gap-2 bg-primary-container/30 border border-primary px-2 py-1 rounded-DEFAULT">
+<span class="material-symbols-outlined text-primary text-[16px]" data-icon="rule">rule</span>
+<span class="font-code-sm text-code-sm text-primary">100% CONFIDENCE</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Pending Tasks Checklist (Col span 6 on desktop) -->
+<section class="card-surface rounded-DEFAULT md:col-span-6 flex flex-col hard-shadow">
+<div class="p-md card-header-divider flex justify-between items-center">
+<h2 class="font-label-md text-label-md text-primary uppercase flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="checklist">checklist</span>
+                            PENDING_TASK_QUEUE
+                        </h2>
+</div>
+<div class="p-md flex-1 flex flex-col gap-2">
+<!-- Task Item -->
+<label class="flex items-start gap-3 p-2 hover:bg-surface-elevated rounded-DEFAULT cursor-pointer group">
+<input class="mt-1 appearance-none w-4 h-4 border border-border-subtle rounded-xs bg-[#0b1326] checked:bg-primary checked:border-primary focus:ring-1 focus:ring-primary focus:ring-offset-1 focus:ring-offset-[#111827] transition-colors relative checked:after:content-[''] checked:after:absolute checked:after:left-[4px] checked:after:top-[1px] checked:after:w-[4px] checked:after:h-[8px] checked:after:border-r-2 checked:after:border-b-2 checked:after:border-[#002113] checked:after:rotate-45" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-text-primary group-hover:text-primary transition-colors">Validate JSON Data Structure</span>
+<span class="font-code-sm text-code-sm text-text-secondary">Ensure payload matches expected schema before DB insertion.</span>
+</div>
+</label>
+<!-- Task Item -->
+<label class="flex items-start gap-3 p-2 hover:bg-surface-elevated rounded-DEFAULT cursor-pointer group">
+<input class="mt-1 appearance-none w-4 h-4 border border-border-subtle rounded-xs bg-[#0b1326] checked:bg-primary checked:border-primary focus:ring-1 focus:ring-primary focus:ring-offset-1 focus:ring-offset-[#111827] transition-colors relative checked:after:content-[''] checked:after:absolute checked:after:left-[4px] checked:after:top-[1px] checked:after:w-[4px] checked:after:h-[8px] checked:after:border-r-2 checked:after:border-b-2 checked:after:border-[#002113] checked:after:rotate-45" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-text-primary group-hover:text-primary transition-colors">Optimize Shader Performance</span>
+<span class="font-code-sm text-code-sm text-text-secondary">Reduce fragment complexity for mobile rendering targets.</span>
+</div>
+</label>
+<!-- Task Item -->
+<label class="flex items-start gap-3 p-2 hover:bg-surface-elevated rounded-DEFAULT cursor-pointer group">
+<input class="mt-1 appearance-none w-4 h-4 border border-border-subtle rounded-xs bg-[#0b1326] checked:bg-primary checked:border-primary focus:ring-1 focus:ring-primary focus:ring-offset-1 focus:ring-offset-[#111827] transition-colors relative checked:after:content-[''] checked:after:absolute checked:after:left-[4px] checked:after:top-[1px] checked:after:w-[4px] checked:after:h-[8px] checked:after:border-r-2 checked:after:border-b-2 checked:after:border-[#002113] checked:after:rotate-45" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-text-primary group-hover:text-primary transition-colors">Generate Unit Tests</span>
+<span class="font-code-sm text-code-sm text-text-secondary">Target coverage: &gt;85% for core logic modules.</span>
+</div>
+</label>
+<!-- Task Input (New) -->
+<div class="mt-2 relative">
+<span class="absolute left-3 top-2 text-primary font-code-sm text-code-sm">&gt;</span>
+<input class="w-full bg-[#0b1326] border border-border-subtle focus:border-primary focus:ring-0 rounded-DEFAULT py-2 pl-8 pr-3 text-text-primary font-code-sm text-code-sm placeholder:text-border-subtle transition-colors" placeholder="Add task..." type="text"/>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="bg-surface-elevated text-primary docked full-width bottom-0 md:hidden border-t border-border-subtle Hard shadow 4px 0px 0px #060e20 fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-md pb-safe h-20">
+<a class="flex flex-col items-center justify-center text-text-secondary p-2 hover:text-primary font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="terminal">terminal</span>
+            Console
+        </a>
+<a class="flex flex-col items-center justify-center text-text-secondary p-2 hover:text-primary font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="database">database</span>
+            Memory
+        </a>
+<a class="flex flex-col items-center justify-center text-text-secondary p-2 hover:text-primary font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="folder_special">folder_special</span>
+            Files
+        </a>
+<a class="flex flex-col items-center justify-center text-text-secondary p-2 hover:text-primary font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="settings">settings</span>
+            Settings
+        </a>
+</nav>
+</body></html>

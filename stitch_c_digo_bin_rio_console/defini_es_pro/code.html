@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings - CÓDIGO BINÁRIO</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "error": "#ffb4ab",
+                "on-primary-fixed": "#002113",
+                "on-primary-container": "#00422b",
+                "on-primary-fixed-variant": "#005236",
+                "inverse-primary": "#006c49",
+                "primary": "#4edea3",
+                "tertiary": "#68dba9",
+                "secondary-fixed": "#d3e4fe",
+                "tertiary-fixed": "#85f8c4",
+                "on-secondary-fixed": "#0b1c30",
+                "surface-container-low": "#131b2e",
+                "border-subtle": "#334155",
+                "on-secondary-fixed-variant": "#38485d",
+                "outline": "#86948a",
+                "text-primary": "#F1F5F9",
+                "primary-container": "#10b981",
+                "secondary-container": "#3a4a5f",
+                "outline-variant": "#3c4a42",
+                "tertiary-fixed-dim": "#68dba9",
+                "background": "#0b1326",
+                "on-tertiary-fixed-variant": "#005137",
+                "on-secondary": "#213145",
+                "on-tertiary-fixed": "#002114",
+                "surface-tint": "#4edea3",
+                "text-secondary": "#94A3B8",
+                "on-tertiary-container": "#00422c",
+                "surface-elevated": "#1F2937",
+                "surface": "#111827",
+                "on-background": "#dae2fd",
+                "surface-container-lowest": "#060e20",
+                "surface-bright": "#31394d",
+                "on-error": "#690005",
+                "primary-fixed": "#6ffbbe",
+                "on-surface-variant": "#bbcabf",
+                "on-primary": "#003824",
+                "surface-container-high": "#222a3d",
+                "inverse-surface": "#dae2fd",
+                "surface-variant": "#2d3449",
+                "secondary-fixed-dim": "#b7c8e1",
+                "secondary": "#b7c8e1",
+                "inverse-on-surface": "#283044",
+                "on-surface": "#dae2fd",
+                "surface-container": "#171f33",
+                "error-container": "#93000a",
+                "surface-dim": "#0b1326",
+                "on-secondary-container": "#a9bad3",
+                "on-error-container": "#ffdad6",
+                "on-tertiary": "#003825",
+                "surface-container-highest": "#2d3449",
+                "tertiary-container": "#3eb686",
+                "primary-fixed-dim": "#4edea3"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "lg": "1.5rem",
+                "xl": "2.5rem",
+                "margin-mobile": "1rem",
+                "sm": "0.5rem",
+                "margin-desktop": "2rem",
+                "xs": "0.25rem",
+                "gutter": "1rem",
+                "md": "1rem"
+        },
+        "fontFamily": {
+                "body-md": [
+                        "JetBrains Mono"
+                ],
+                "label-sm": [
+                        "JetBrains Mono"
+                ],
+                "headline-xl": [
+                        "JetBrains Mono"
+                ],
+                "headline-lg": [
+                        "JetBrains Mono"
+                ],
+                "body-lg": [
+                        "JetBrains Mono"
+                ],
+                "headline-lg-mobile": [
+                        "JetBrains Mono"
+                ],
+                "label-md": [
+                        "JetBrains Mono"
+                ],
+                "body-sm": [
+                        "JetBrains Mono"
+                ],
+                "headline-md": [
+                        "JetBrains Mono"
+                ]
+        },
+        "fontSize": {
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-xl": [
+                        "40px",
+                        {
+                                "lineHeight": "48px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-sm": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "500"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        body {
+            background-color: #0b1326; /* Level 0 Background */
+            color: #F1F5F9;
+        }
+        
+        /* Terminal Input Styling */
+        input[type="text"], input[type="password"], select {
+            background-color: #131b2e;
+            border: 1px solid #334155;
+            color: #F1F5F9;
+            transition: all 0.2s ease;
+        }
+        
+        input[type="text"]:focus, input[type="password"]:focus, select:focus {
+            border-color: #10b981;
+            box-shadow: 0 0 4px rgba(16, 185, 129, 0.3);
+            outline: none;
+        }
+        
+        input::placeholder {
+            color: #94A3B8;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b1326;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #10b981;
+        }
+      </style>
+</head>
+<body class="font-body-md text-body-md antialiased overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 left-0 md:left-64 z-30 flex justify-between items-center px-lg h-16 bg-surface-container-low/80 backdrop-blur-md border-b border-border-subtle flat no shadows">
+<div class="flex items-center gap-4">
+<img alt="CÓDIGO BINÁRIO" class="h-6 w-auto object-contain hidden md:block mix-blend-screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYl60yVi-egCwFJkO4IosEIskl2tF9bYXbnBuDRnuTTQeYEfW6RuYZfCZe4l9PuAMsFjnKTnX3w385wwJhUKHHhVTsFVMJ5BOW1FpLzQkTHb52-vO8pcLjtdtjrdyIRowJaNdMAI2ixFjGODfSZHOnx6pALw9oBYLuf89SYITyftJe2ax7ZNi9o6QYZF6_Ib_oIJBOkm8RG7xKgC9ajcozvyQfE0QCWdFhwNfRnDNhCHHWyMJPOu0xlELMNZjEhPuYkw"/>
+</div>
+<nav class="hidden md:flex gap-6 h-full items-center">
+<a class="font-label-md text-label-md text-text-secondary hover:text-primary transition-colors" href="#">Chat</a>
+<a class="font-label-md text-label-md text-text-secondary hover:text-primary transition-colors" href="#">Memory</a>
+<a class="font-label-md text-label-md text-primary font-bold border-b-2 border-primary pb-1 h-full flex items-center mt-[2px]" href="#">Settings</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="font-label-md text-label-md text-primary border border-primary/50 px-4 py-1.5 rounded hover:bg-primary/10 transition-colors">
+                PHASE_01: INITIALIZE
+            </button>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-text-secondary cursor-pointer hover:text-primary transition-colors" data-icon="memory">memory</span>
+<span class="material-symbols-outlined text-text-secondary cursor-pointer hover:text-primary transition-colors" data-icon="sync_alt">sync_alt</span>
+<span class="material-symbols-outlined text-text-secondary cursor-pointer hover:text-primary transition-colors" data-icon="terminal">terminal</span>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Desktop) -->
+<aside class="hidden md:flex flex-col fixed left-0 top-0 h-full z-40 h-screen w-64 border-r border-border-subtle bg-surface-container dark:bg-surface-container flat no shadows">
+<div class="p-lg border-b border-border-subtle">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-surface-container-highest rounded border border-border-subtle flex items-center justify-center text-primary font-bold">
+                    CB
+                </div>
+<div>
+<img alt="CÓDIGO BINÁRIO" class="h-5 w-auto object-contain mix-blend-screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrAFLRttbaKWOaI6uPTgQ4i1RTPbIsTI0CReY6RAcd0TsyXPYQW9JaONIIAmxr7MrW0Vn_MsatcXl4Bsq6sQ3j7LSgjTfXCX_AumD8v_PiPtCcEhk-up185uKlgQ51tBRmN7PXt5ePmo4Gl78ZosgrA8pRuPcr3bzE7C-Jn3dPGwdo9lbK5PZe-YlWnXqgU45ee1iMsvBqEm5Hhh_Ktq8NOosFX94oMrx-tjKk5JHd-HD_YTJIYDraJHKqNA9aYlBP2g"/>
+<p class="font-label-sm text-label-sm text-text-secondary mt-1">AI OS v1.0.4</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 py-md overflow-y-auto">
+<a class="font-label-md text-label-md text-text-secondary hover:text-text-primary pl-4 py-3 flex items-center gap-3 transition-colors hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined" data-icon="folder_open">folder_open</span>
+                Current Project
+            </a>
+<a class="font-label-md text-label-md text-text-secondary hover:text-text-primary pl-4 py-3 flex items-center gap-3 transition-colors hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+                Project Archive
+            </a>
+<a class="font-label-md text-label-md text-text-secondary hover:text-text-primary pl-4 py-3 flex items-center gap-3 transition-colors hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined" data-icon="step">step</span>
+                Active Phase
+            </a>
+<a class="font-label-md text-label-md text-primary border-l-2 border-primary bg-primary/10 pl-4 py-3 flex items-center gap-3 transition-all hover:bg-surface-container-high transition-colors opacity-90 scale-[0.99] transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+                System Logs
+            </a>
+</nav>
+<div class="p-md border-t border-border-subtle">
+<button class="w-full font-label-md text-label-md bg-primary-container text-on-primary-container border border-primary/50 py-2 rounded font-bold hover:bg-primary-container/80 transition-colors flex items-center justify-center gap-2">
+                + NEW_PROJECT
+            </button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="pt-16 md:pl-64 min-h-screen bg-background">
+<div class="max-w-[1280px] mx-auto p-margin-mobile md:p-margin-desktop">
+<div class="mb-lg flex items-center gap-4">
+<h2 class="font-headline-xl text-headline-xl text-text-primary mb-2">&gt; System Settings_</h2>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary mb-lg">Configure core AI engine parameters and connectivity.</p>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<!-- AI Configuration Form -->
+<div class="lg:col-span-8 space-y-lg">
+<!-- Provider Card -->
+<div class="bg-surface-container-low border border-border-subtle rounded">
+<div class="p-md border-b border-border-subtle flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="memory">memory</span>
+<h3 class="font-headline-md text-headline-md text-text-primary text-lg">AI Provider Configuration</h3>
+</div>
+<div class="p-md space-y-6">
+<!-- Provider Selection -->
+<div>
+<label class="block font-label-sm text-label-sm text-text-secondary mb-2" for="ai-provider">&gt; SELECT_PROVIDER</label>
+<select class="w-full font-body-sm text-body-sm px-3 py-2 rounded focus:ring-0 bg-surface border-border-subtle text-text-primary" id="ai-provider">
+<option selected="" value="claude">Claude API (Anthropic)</option>
+<option value="openai">OpenAI API</option>
+<option value="local">Local Model (Ollama)</option>
+</select>
+</div>
+<!-- Model Selection -->
+<div>
+<label class="block font-label-sm text-label-sm text-text-secondary mb-2" for="ai-model">&gt; DEFAULT_MODEL</label>
+<select class="w-full font-body-sm text-body-sm px-3 py-2 rounded focus:ring-0 bg-surface border-border-subtle text-text-primary" id="ai-model">
+<option value="claude-3-opus">claude-3-opus-20240229</option>
+<option selected="" value="claude-3-sonnet">claude-3-sonnet-20240229</option>
+<option value="claude-3-haiku">claude-3-haiku-20240307</option>
+</select>
+</div>
+<!-- API Key -->
+<div>
+<label class="block font-label-sm text-label-sm text-text-secondary mb-2" for="api-key">&gt; API_KEY</label>
+<div class="relative">
+<input class="w-full font-body-sm text-body-sm px-3 py-2 rounded pr-10 focus:ring-0 bg-surface border-border-subtle text-text-primary" id="api-key" placeholder="Enter API Key" type="password" value="sk-ant-api03-xxxxxxxxxxxxxxxxxxxxxxxxx"/>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 text-text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="visibility_off">visibility_off</span>
+</button>
+</div>
+<p class="font-label-sm text-label-sm text-text-secondary mt-2">Key is encrypted and stored locally.</p>
+</div>
+</div>
+</div>
+<!-- Connection Card -->
+<div class="bg-surface-container-low border border-border-subtle rounded">
+<div class="p-md border-b border-border-subtle flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="router">router</span>
+<h3 class="font-headline-md text-headline-md text-text-primary text-lg">Backend Connection</h3>
+</div>
+<div class="p-md space-y-6">
+<div>
+<label class="block font-label-sm text-label-sm text-text-secondary mb-2" for="service-url">&gt; SERVICE_URL</label>
+<input class="w-full font-body-sm text-body-sm px-3 py-2 rounded focus:ring-0 bg-surface border-border-subtle text-text-primary" id="service-url" placeholder="https://api.example.com" type="text" value="http://localhost:8080/api/v1"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-text-secondary mb-2">&gt; CONNECTION_STATUS</label>
+<div class="flex items-center gap-3 bg-surface-container p-3 rounded border border-border-subtle">
+<div class="w-3 h-3 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(78,222,163,0.5)]"></div>
+<span class="font-body-sm text-body-sm text-primary font-medium">CONNECTED: LATENCY 24ms</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex justify-end gap-4">
+<button class="font-label-md text-label-md bg-transparent text-text-secondary border-none py-2 px-4 rounded hover:bg-surface-container hover:text-text-primary transition-colors">
+                            CANCEL
+                        </button>
+<button class="font-label-md text-label-md bg-primary-container text-on-primary-container border border-primary/50 py-2 px-6 rounded font-bold hover:bg-primary-container/80 transition-colors">
+                            APPLY_CHANGES
+                        </button>
+</div>
+</div>
+<!-- Info Sidebar -->
+<div class="lg:col-span-4 space-y-lg hidden lg:block">
+<div class="bg-surface-container-low border border-border-subtle rounded p-md">
+<h4 class="font-label-md text-label-md text-text-primary mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-secondary-fixed" data-icon="info">info</span>
+                            System Note
+                        </h4>
+<p class="font-body-sm text-body-sm text-text-secondary mb-4">
+                            Modifying the primary AI provider will reset active context windows. Ensure all critical state is saved to Project Archive before proceeding.
+                        </p>
+<ul class="space-y-2 font-body-sm text-body-sm text-text-secondary">
+<li class="flex items-start gap-2 group hover:bg-surface-container p-1.5 rounded transition-colors">
+<span class="text-primary mt-0.5 font-bold">&gt;</span>
+<span class="">Claude API optimized for code generation.</span>
+</li>
+<li class="flex items-start gap-2 group hover:bg-surface-container p-1.5 rounded transition-colors">
+<span class="text-primary mt-0.5 font-bold">&gt;</span>
+<span class="">Local models require min 16GB VRAM.</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-md pb-safe h-20 bg-surface-container-low border-t border-border-subtle flat no shadows">
+<a class="font-label-md text-label-md flex flex-col items-center justify-center text-text-secondary p-2 hover:text-primary" href="#">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+<span class="text-xs mt-1">Console</span>
+</a>
+<a class="font-label-md text-label-md flex flex-col items-center justify-center text-text-secondary p-2 hover:text-primary" href="#">
+<span class="material-symbols-outlined" data-icon="database">database</span>
+<span class="text-xs mt-1">Memory</span>
+</a>
+<a class="font-label-md text-label-md flex flex-col items-center justify-center text-text-secondary p-2 hover:text-primary" href="#">
+<span class="material-symbols-outlined" data-icon="folder_special">folder_special</span>
+<span class="text-xs mt-1">Files</span>
+</a>
+<a class="font-label-md text-label-md flex flex-col items-center justify-center text-primary bg-primary/10 rounded-xl p-2 hover:text-primary Active: scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-xs mt-1">Settings</span>
+</a>
+</nav>
+</body></html>
