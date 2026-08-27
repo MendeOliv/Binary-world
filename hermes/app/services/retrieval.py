@@ -1,6 +1,6 @@
 from typing import Any, Dict, List, Optional
 from uuid import UUID
-from app.services.repository import repo
+from .services.repository import repo
 
 class RetrievalService:
     def __init__(self):

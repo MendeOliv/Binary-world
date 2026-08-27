@@ -1,13 +1,13 @@
 import json
 from typing import Any, Dict, List, Optional
 from uuid import UUID
-from app.services.repository import repo
-from app.services.retrieval import retrieval_service
-from app.services.context_builder import context_builder
-from app.services.conflict_detector import conflict_detector
-from app.services.memory_extractor import memory_extractor
-from app.services.ai_providers import ai_provider
-from app.config import settings
+from .services.repository import repo
+from .services.retrieval import retrieval_service
+from .services.context_builder import context_builder
+from .services.conflict_detector import conflict_detector
+from .services.memory_extractor import memory_extractor
+from .services.ai_providers import ai_provider
+from .config import settings
 
 class OrchestratorService:
     def __init__(self):

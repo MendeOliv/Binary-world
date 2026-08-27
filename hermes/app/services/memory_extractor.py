@@ -1,8 +1,8 @@
 import json
 from typing import Any, Dict, List, Optional
 from uuid import UUID
-from app.services.ai_providers import ai_provider
-from app.services.repository import repo
+from .services.ai_providers import ai_provider
+from .services.repository import repo
 
 class MemoryExtractor:
     def __init__(self):

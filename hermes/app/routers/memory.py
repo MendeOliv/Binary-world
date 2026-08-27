@@ -1,10 +1,10 @@
 from typing import List
 from uuid import UUID
 from fastapi import APIRouter, Depends, HTTPException, Query, status
-from app.dependencies import verify_api_key
-from app.models.schemas import MemoryItemCreate, MemoryItemResponse
-from app.services.repository import repo
-from app.services.retrieval import retrieval_service
+from ..dependencies import verify_api_key
+from ..models.schemas import MemoryItemCreate, MemoryItemResponse
+from ..services.repository import repo
+from .services.retrieval import retrieval_service
 
 router = APIRouter(
     prefix="/projects",

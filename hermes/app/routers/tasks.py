@@ -1,9 +1,9 @@
 from typing import List
 from uuid import UUID
 from fastapi import APIRouter, Depends, HTTPException, status
-from app.dependencies import verify_api_key
-from app.models.schemas import TaskCreate, TaskResponse, TaskUpdate
-from app.services.repository import repo
+from ..dependencies import verify_api_key
+from ..models.schemas import TaskCreate, TaskResponse, TaskUpdate
+from ..services.repository import repo
 
 project_tasks_router = APIRouter(
     prefix="/projects",

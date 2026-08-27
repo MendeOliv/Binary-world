@@ -1,9 +1,9 @@
 from typing import List, Optional
 from uuid import UUID
 from fastapi import APIRouter, Depends, HTTPException, Query, status
-from app.dependencies import verify_api_key
-from app.models.schemas import ConflictCreate, ConflictResponse
-from app.services.repository import repo
+from ..dependencies import verify_api_key
+from ..models.schemas import ConflictCreate, ConflictResponse
+from ..services.repository import repo
 
 router = APIRouter(
     prefix="/projects",

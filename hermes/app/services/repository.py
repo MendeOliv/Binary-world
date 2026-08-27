@@ -1,7 +1,7 @@
 from typing import Any, Dict, List, Optional
 from uuid import UUID
 from supabase import create_client, Client
-from app.config import settings
+from .config import settings
 
 class SupabaseRepository:
     def __init__(self):

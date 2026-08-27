@@ -1,6 +1,6 @@
 import json
 from typing import Any, Dict, List, Optional
-from app.services.ai_providers import ai_provider
+from .services.ai_providers import ai_provider
 
 class ConflictDetector:
     def __init__(self):

@@ -4,7 +4,7 @@ import httpx
 from anthropic import Anthropic
 import google.generativeai as genai
 from groq import Groq
-from app.config import settings
+from .config import settings
 
 class AIProviderService:
     def __init__(self):

@@ -1,9 +1,9 @@
 from uuid import UUID
 from fastapi import APIRouter, Depends, HTTPException
-from app.dependencies import verify_api_key
-from app.models.schemas import ChatRequest, ChatResponse
-from app.services.repository import repo
-from app.services.orchestrator import orchestrator
+from ..dependencies import verify_api_key
+from ..models.schemas import ChatRequest, ChatResponse
+from ..services.repository import repo
+from .services.orchestrator import orchestrator
 
 router = APIRouter(
     prefix="/projects",
