@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+    <meta name="api-base" content="https://binary-world.onrender.com/api">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Código Binário - Main Chat Console</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "error": "#ffb4ab",
+                "on-primary-fixed": "#002113",
+                "on-primary-container": "#00422b",
+                "on-primary-fixed-variant": "#005236",
+                "inverse-primary": "#006c49",
+                "primary": "#4edea3",
+                "tertiary": "#68dba9",
+                "secondary-fixed": "#d3e4fe",
+                "tertiary-fixed": "#85f8c4",
+                "on-secondary-fixed": "#0b1c30",
+                "surface-container-low": "#131b2e",
+                "border-subtle": "#334155",
+                "on-secondary-fixed-variant": "#38485d",
+                "outline": "#86948a",
+                "text-primary": "#F1F5F9",
+                "primary-container": "#10b981",
+                "secondary-container": "#3a4a5f",
+                "outline-variant": "#3c4a42",
+                "tertiary-fixed-dim": "#68dba9",
+                "background": "#0b1326",
+                "on-tertiary-fixed-variant": "#005137",
+                "on-secondary": "#213145",
+                "on-tertiary-fixed": "#002114",
+                "surface-tint": "#4edea3",
+                "text-secondary": "#94A3B8",
+                "on-tertiary-container": "#00422c",
+                "surface-elevated": "#1F2937",
+                "surface": "#111827",
+                "on-background": "#dae2fd",
+                "surface-container-lowest": "#060e20",
+                "surface-bright": "#31394d",
+                "on-error": "#690005",
+                "primary-fixed": "#6ffbbe",
+                "on-surface-variant": "#bbcabf",
+                "on-primary": "#003824",
+                "surface-container-high": "#222a3d",
+                "inverse-surface": "#dae2fd",
+                "surface-variant": "#2d3449",
+                "secondary-fixed-dim": "#b7c8e1",
+                "secondary": "#b7c8e1",
+                "inverse-on-surface": "#283044",
+                "on-surface": "#dae2fd",
+                "surface-container": "#171f33",
+                "error-container": "#93000a",
+                "surface-dim": "#0b1326",
+                "on-secondary-container": "#a9bad3",
+                "on-error-container": "#ffdad6",
+                "on-tertiary": "#003825",
+                "surface-container-highest": "#2d3449",
+                "tertiary-container": "#3eb686",
+                "primary-fixed-dim": "#4edea3"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "lg": "1.5rem",
+                "xl": "2.5rem",
+                "margin-mobile": "1rem",
+                "sm": "0.5rem",
+                "margin-desktop": "2rem",
+                "xs": "0.25rem",
+                "gutter": "1rem",
+                "md": "1rem"
+        },
+        "fontFamily": {
+                "body-md": [
+                        "JetBrains Mono"
+                ],
+                "label-sm": [
+                        "JetBrains Mono"
+                ],
+                "headline-xl": [
+                        "JetBrains Mono"
+                ],
+                "headline-lg": [
+                        "JetBrains Mono"
+                ],
+                "body-lg": [
+                        "JetBrains Mono"
+                ],
+                "headline-lg-mobile": [
+                        "JetBrains Mono"
+                ],
+                "label-md": [
+                        "JetBrains Mono"
+                ],
+                "body-sm": [
+                        "JetBrains Mono"
+                ],
+                "headline-md": [
+                        "JetBrains Mono"
+                ]
+        },
+        "fontSize": {
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-xl": [
+                        "40px",
+                        {
+                                "lineHeight": "48px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-sm": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "500"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        /* Terminal Noir specifics */
+        body { background-color: #0b1326; }
+        .hard-shadow { box-shadow: 4px 4px 0px #060e20; }
+        .glow-hover:hover {
+            border-color: #10b981;
+            box-shadow: inset 0 0 4px rgba(16, 185, 129, 0.3);
+        }
+        /* Custom scrollbar for chat */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0b1326; }
+        ::-webkit-scrollbar-thumb { background: #171f33; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #10b981; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen overflow-hidden flex flex-col md:flex-row">
+<!-- TopNavBar (Mobile Only Fallback/Header) -->
+<header class="md:hidden flex justify-between items-center px-lg h-16 bg-background/80 backdrop-blur-md border-b border-outline-variant z-30 fixed top-0 w-full">
+<div class="flex items-center">
+<img alt="Código Binário" class="h-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD96XmtmuLOAPwKtyuy4OUUCYcpv0ZYS70BRW1ZmShWA5t750sDmuyyRAC98p2WEV0Fgphl5J5Z8_0d6wOLWooaj4g9D19GVjGN17xdh_mUEFsh_H-7LkFIdYq_sP9y7z4vudRDhYLjg5kiQIryjnHF30mKQiNYMDK0IU4OiZtCwNd5SSxkfqctQUFz_Ko7mdtyvmj5tQbIP8Ue3yw9l_drpzfnO-flxZmJLVFaW00iy5Il7CRqnJnfePu0_8c5Mfys4w"/>
+</div>
+<div class="flex gap-4 text-secondary">
+<span class="material-symbols-outlined hover:text-primary-fixed transition-colors">memory</span>
+<span class="material-symbols-outlined hover:text-primary-fixed transition-colors">sync_alt</span>
+<span class="material-symbols-outlined hover:text-primary-fixed transition-colors">terminal</span>
+</div>
+</header>
+<!-- SideNavBar (Desktop) -->
+<nav class="hidden md:flex flex-col fixed left-0 top-0 h-full z-40 bg-surface border-r border-outline-variant w-64">
+<div class="p-lg border-b border-outline-variant">
+<img alt="Código Binário Logo" class="w-16 h-16 object-contain mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB17IF4MEHaM_GEdASbCmrnPLOwzx9LTDG4fVHBGPoG2qlRlMwLuSL05Ou_hPstbI8GCWZZySonH-TH2AC6ZJYXKa4xYjTYOa7U9MrIFIz5rjehIhAC4irXpie4iu67UYxxmeGVy2YiDYKx85qZR2nfb7LJ4C268Q3IEgtfPZrbLSiU9H_a6yv4hp6KLi8P_D1CEPba5b7zlSdr6efbn0UTtJ7LM-i9MdW4DJcObwLbesDd_3oIjwdiOD9wPrKBM7Dctg"/>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">AI OS v1.0.4</p>
+</div>
+<div class="p-md">
+<button class="w-full bg-primary-container text-on-primary-container border border-primary font-label-md text-label-md py-2 px-4 rounded hard-shadow hover:bg-surface-container-high transition-colors font-bold">+ NEW_PROJECT</button>
+</div>
+<ul class="flex-1 overflow-y-auto mt-4 space-y-1">
+<li class="">
+<a class="text-primary border-l-2 border-primary bg-primary-container/20 pl-4 py-3 flex items-center gap-3 transition-all opacity-80 scale-[0.99] font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">folder_open</span>
+                    Current Project
+                </a>
+</li>
+<li class="">
+<a class="text-on-surface-variant hover:text-on-surface pl-4 py-3 flex items-center gap-3 transition-colors hover:bg-surface-container-high font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+                    Project Archive
+                </a>
+</li>
+<li class="">
+<a class="text-on-surface-variant hover:text-on-surface pl-4 py-3 flex items-center gap-3 transition-colors hover:bg-surface-container-high font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">step</span>
+                    Active Phase
+                </a>
+</li>
+<li class="">
+<a class="text-on-surface-variant hover:text-on-surface pl-4 py-3 flex items-center gap-3 transition-colors hover:bg-surface-container-high font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">terminal</span>
+                    System Logs
+                </a>
+</li>
+</ul>
+<div class="p-4 border-t border-outline-variant">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded border border-outline-variant object-cover" data-alt="A small, stylized avatar image representing an AI core. The image features a glowing green node surrounded by dark, geometric circuitry patterns, rendered in a high-contrast, terminal-noir aesthetic with deep blacks and vibrant neon green accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDj-x6D7V3MWiaODfDh3B-DLk4Wh5ZORrTUlSNQbALsJjOhZNZHvxTkyE3DgEQO-7fEVMbfWxRBW_qZiYsnmryrNNwChMSBB5_U5K_hkBR8Hn6PvnZ2Z-ow7TKHSrOXT4HjUQEfExBAgBffnYXLeH9bNUs6mgraTpeepeYvmj_7EkKlbxodiR_Ey39uHRIbvkmgoQcylGR600wkAcYPaFFZSGP2D4ZpeROI_8QXd1vcEZh0JegOCiWr"/>
+<div class="font-label-sm text-label-sm">
+<div class="text-on-surface">Admin_Root</div>
+<div class="text-on-surface-variant">Online</div>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col md:ml-64 mt-16 md:mt-0 h-screen w-full relative">
+<!-- Top Status Bar -->
+<div class="hidden md:flex fixed top-0 right-0 left-64 z-30 justify-between items-center px-lg h-16 bg-background/80 backdrop-blur-md border-b border-outline-variant">
+<div class="flex gap-6 font-label-md text-label-md">
+<a class="text-primary font-bold border-b-2 border-primary pb-1" href="#">Chat</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Memory</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Settings</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-label-sm text-label-sm text-primary bg-primary-container/20 px-2 py-1 rounded border border-primary-container">PHASE_01: INITIALIZE</span>
+<div class="flex gap-3 text-primary">
+<span class="material-symbols-outlined hover:text-primary-fixed cursor-pointer transition-colors">memory</span>
+<span class="material-symbols-outlined hover:text-primary-fixed cursor-pointer transition-colors">sync_alt</span>
+<span class="material-symbols-outlined hover:text-primary-fixed cursor-pointer transition-colors">terminal</span>
+</div>
+</div>
+</div>
+<div class="flex flex-1 overflow-hidden pt-0 md:pt-16 pb-20 md:pb-0">
+<!-- Chat Center Panel -->
+<section class="flex-1 flex flex-col bg-background relative border-r border-outline-variant">
+<!-- Chat Header Indicator -->
+<div class="p-sm text-center border-b border-outline-variant bg-surface-dim">
+<span class="font-label-sm text-label-sm text-on-surface-variant">
+                        &gt; project: <span class="text-primary">Quantum-Nexus</span> · phase: <span class="text-primary">ANALYSIS</span>
+</span>
+</div>
+<!-- Chat History -->
+<div class="flex-1 overflow-y-auto p-lg space-y-6">
+<!-- User Message -->
+<div class="flex justify-end">
+<div class="bg-surface border border-outline-variant p-md rounded-lg max-w-[80%] rounded-tr-none hard-shadow">
+<p class="font-body-md text-body-md text-on-surface">Initiate analysis on the new core modules. We need to identify any potential deadlocks in the concurrent processing pipelines before moving to Phase 2.</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-2 text-right">10:42:01</span>
+</div>
+</div>
+<!-- AI Message -->
+<div class="flex justify-start">
+<div class="bg-surface border border-primary-container p-md rounded-lg max-w-[85%] rounded-tl-none glow-hover transition-all">
+<div class="flex items-center gap-2 mb-2 text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">terminal</span>
+                                CB_SYS_AGENT
+                            </div>
+<p class="font-body-md text-body-md text-on-surface mb-4">Analysis complete. Found 2 potential race conditions in <code class="font-label-sm text-primary bg-surface-container-low px-1 py-0.5 rounded">thread_manager.rs</code>.</p>
+<!-- Code Block -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-sm font-body-sm text-body-sm overflow-x-auto">
+<pre><code class="text-on-surface-variant"><span class="text-primary">// Problematic lock acquisition sequence</span>
+<span class="text-tertiary-container">fn</span> <span class="text-primary-fixed">process_data</span>() {
+    <span class="text-tertiary-container">let</span> lock_a = RESOURCE_A.<span class="text-primary-fixed">lock</span>().unwrap();
+    <span class="text-tertiary-container">let</span> lock_b = RESOURCE_B.<span class="text-primary-fixed">lock</span>().unwrap(); <span class="text-primary">// Potential deadlock if inverted elsewhere</span>
+    
+    <span class="text-primary">/* ... processing ... */</span>
+}</code></pre>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-4">Recommendation: Implement an ordered locking mechanism or utilize a timeout strategy for resource acquisition.</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-2">10:42:45</span>
+</div>
+</div>
+</div>
+<!-- Input Area -->
+<div class="p-md bg-surface-dim border-t border-outline-variant">
+<div class="flex items-end gap-2 bg-surface-container-lowest border border-outline-variant rounded-lg p-2 focus-within:border-primary-container focus-within:shadow-[inset_0_0_4px_rgba(16,185,129,0.3)] transition-all">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">attach_file</span>
+</button>
+<textarea class="flex-1 bg-transparent border-none focus:ring-0 resize-none font-body-sm text-body-sm text-on-surface placeholder-outline min-h-[44px] max-h-32 py-2" placeholder="&gt; Enter command or message..." rows="1"></textarea>
+<button class="bg-primary-container text-on-primary-container p-2 rounded hover:bg-surface-container-high border border-primary transition-colors">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Right Panel: Project State (Hidden on Mobile) -->
+<aside class="hidden lg:flex w-80 flex-col bg-surface overflow-y-auto">
+<div class="p-md border-b border-outline-variant">
+<h2 class="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">analytics</span>
+                        Project State
+                    </h2>
+</div>
+<div class="p-md space-y-6">
+<!-- Phase Status -->
+<div class="bg-surface-container border border-outline-variant rounded p-sm relative glow-hover">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-2 border-b border-outline-variant pb-1">Current Phase</h3>
+<div class="font-label-sm text-label-sm text-primary flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                            Phase 1: Architecture Review
+                        </div>
+</div>
+<!-- Tasks -->
+<div class="bg-surface-container border border-outline-variant rounded p-sm">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-2 border-b border-outline-variant pb-1 flex justify-between items-center">
+                            Tasks
+                            <span class="bg-primary-container text-on-primary-container px-2 py-0.5 rounded text-[10px]">3 PENDING</span>
+</h3>
+<ul class="font-label-sm text-label-sm space-y-2 mt-2">
+<li class="flex items-start gap-2 hover:bg-surface-container-low p-1 rounded transition-colors text-on-surface cursor-pointer">
+<span class="text-primary mt-0.5">&gt;</span> Validate concurrency model
+                            </li>
+<li class="flex items-start gap-2 hover:bg-surface-container-low p-1 rounded transition-colors text-on-surface cursor-pointer">
+<span class="text-primary mt-0.5">&gt;</span> Optimize DB queries
+                            </li>
+<li class="flex items-start gap-2 hover:bg-surface-container-low p-1 rounded transition-colors text-on-surface-variant cursor-pointer line-through opacity-50">
+<span class="text-outline mt-0.5">&gt;</span> Setup staging env
+                            </li>
+</ul>
+</div>
+<!-- Decisions -->
+<div class="bg-surface-container border border-outline-variant rounded p-sm">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-2 border-b border-outline-variant pb-1">Decisions Log</h3>
+<div class="font-label-sm text-label-sm text-on-surface">2 Active</div>
+<div class="mt-2 flex gap-2">
+<span class="bg-primary-container text-on-primary-container border border-primary px-2 py-1 text-[10px] rounded uppercase">DEC-01: Postgres</span>
+<span class="bg-transparent text-on-primary-container border border-primary-container px-2 py-1 text-[10px] rounded uppercase">DEC-02: Rust Core</span>
+</div>
+</div>
+<!-- Open Questions -->
+<div class="bg-surface-container border border-outline-variant rounded p-sm border-l-2 border-l-tertiary-container">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-2 border-b border-outline-variant pb-1 flex justify-between items-center">
+                            Open Questions
+                            <span class="bg-tertiary-container/20 text-tertiary-container px-2 py-0.5 rounded text-[10px]">1 ATTENTION</span>
+</h3>
+<p class="font-label-sm text-label-sm text-tertiary-container mt-2">
+                            Do we implement custom telemetry or use external SaaS provider for phase 2?
+                        </p>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only Fallback) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-md pb-safe h-20 bg-surface-container-low border-t border-outline-variant shadow-[4px_0px_0px_#060e20]">
+<a class="flex flex-col items-center justify-center text-primary bg-primary-container/30 rounded-xl p-2 scale-90 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">terminal</span>
+<span class="">Console</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary p-2 transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">database</span>
+<span class="">Memory</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary p-2 transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">folder_special</span>
+<span class="">Files</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary p-2 transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="">Settings</span>
+</a>
+</nav>
+<script src="/assets/js/chat.js"></script>
+<script>
+        // Simple script to auto-resize textarea
+        const textarea = document.querySelector('textarea');
+        textarea.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+        });
+    </script>
+</body></html>
